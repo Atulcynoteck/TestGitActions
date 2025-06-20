@@ -1,4 +1,4 @@
-echo "name: CI
+name: CI
 
 on:
   push:
@@ -21,4 +21,4 @@ jobs:
 
       - name: Build and Test
         run: |
-          xcodebuild -scheme TestGitActions -destination 'platform=iOS Simulator,name=iPhone 14' clean build test" > .github/workflows/ci.yml
+          xcodebuild -scheme TestGitActions -destination 'platform=iOS Simulator,name=iPhone 14' clean build test
