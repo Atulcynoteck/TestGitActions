@@ -1,0 +1,24 @@
+echo "name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Select Xcode version
+        run: sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+
+      - name: Build and Test
+        run: |
+          xcodebuild -scheme TestGitActions -destination 'platform=iOS Simulator,name=iPhone 14' clean build test" > .github/workflows/ci.yml
